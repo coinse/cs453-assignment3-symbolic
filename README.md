@@ -1,7 +1,8 @@
 ## CS453 Assignment 3: Lightweight Symbolic Execution Engine
 
 The aim of this assignment is to implement a lightweight dynamic symbolic execution engine by exploiting the dynamic typing of Python as well as the [Z3 SAT solver](https://github.com/Z3Prover/z3) (we will use the Python wrapper, [z3-solver](https://pypi.org/project/z3-solver/)). 
-
+  * You may want to use the [Z3 Python tutorial](https://ericpony.github.io/z3py-tutorial/guide-examples.htm) to get started with Z3.
+  
 ### Peer Lightweight Approach
 
 We will follow the [peer approach outlined by Bruni et al](Bruni2008.pdf). It is an intuitive and straightforward idea as long as we limit our scope to a subset of Python with integers and lists. 
