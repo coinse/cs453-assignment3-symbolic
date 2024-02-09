@@ -18,7 +18,7 @@ y = x + 2
 A concrete execution will result in the program state in which `x` is equal to 
 42, and `y` to 44. Symbolically, however, all we need to know is that `y` is 
 now the value of `x` plus 2. This can be recorded by overloading the addition: 
-`x + 2` is actually executed as a call to `x.__add(2)__`. Therefore, if you use 
+`x + 2` is actually executed as a call to `x.__add__(2)`. Therefore, if you use 
 a symbolic variable that you define, instead of a primitive integer, you can 
 record the symbolic state of `y`. The linked article gives a very detailed 
 explanation of the approach, including what to do with `y = 2 + x`: it is 
@@ -43,8 +43,6 @@ options:
   -h, --help            show this help message and exit
   -t TARGET, --target TARGET
                         the target file to symbolically execute
-  -o OUTPUT, --output OUTPUT
-                        the output file to store the generated PyTest testcases
 $
 ```
 
@@ -56,6 +54,6 @@ Each target file can contain multiple Python functions, which are written in the
 - Predicates can use comparisons (`>`, `>=`, `<`, `<=`, `==`, `!=`) as well as Boolean operators (`and`, `or`, `not`).
 - Note that predicates can include function calls.
 
-The final output of your dynamic symbolic execution engine should be PyTest testcases: for each target `.py` file, generate a corresponding PyTest file, with the name being the prefix `test_` added to the original target file name. For example, if the target file is `example3.py`, then the generated PyTest file should be named `test_example3.py`. The PyTest testcases should use the results of dynamic symbolic execution to achieve branch coverage. We will use [coverage.py](https://coverage.readthedocs.io/en/7.4.0/) to measure branch coverage of the generated testcases, which will be part of the grade. Note that you do not need to generate any assertions: achieving branch coverage is enough.
+The final output of your dynamic symbolic execution engine should be PyTest testcases: for each target `.py` file, generate a corresponding PyTest file, with the name being the prefix `test_` added to the original target file name. For example, if the target file is `example3.py`, then the generated PyTest file should be named `test_example3.py` and should be in the same directory as the target file. 
 
-
+The PyTest testcases should use the results of dynamic symbolic execution to achieve branch coverage. We will use [coverage.py](https://coverage.readthedocs.io/en/7.4.0/) to measure branch coverage of the generated testcases, which will be part of the grade. Note that you do not need to generate any assertions: achieving branch coverage is enough.
