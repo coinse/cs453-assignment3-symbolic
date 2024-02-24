@@ -1,11 +1,10 @@
 ## CS453 Assignment 3: Lightweight Symbolic Execution Engine
 
-The aim of this assignment is to implement a lightweight dynamic symbolic execution engine by exploiting the dynamic typing of Python as well as the [Z3 SAT solver](https://github.com/Z3Prover/z3) (we will use the Python wrapper, [z3-solver](https://pypi.org/project/z3-solver/)). 
-  * You may want to use the [Z3 Python tutorial](https://ericpony.github.io/z3py-tutorial/guide-examples.htm) to get started with Z3.
-  
+The aim of this assignment is to implement a lightweight dynamic symbolic execution engine by exploiting the dynamic typing of Python as well as the [Z3 SAT solver](https://github.com/Z3Prover/z3) (we will use the Python wrapper, [z3-solver](https://pypi.org/project/z3-solver/)). You may want to use the [Z3 Python tutorial](https://ericpony.github.io/z3py-tutorial/guide-examples.htm) to get familiar with Z3. The final goal is to achieve as much branch coverage as possible using symbolic execution.
+
 ### Peer Lightweight Approach
 
-We will follow the [peer approach outlined by Bruni et al](Bruni2008.pdf). It is an intuitive and straightforward idea as long as we limit our scope to a subset of Python with integers and lists. 
+We will follow the [peer approach outlined by Bruni et al](Bruni2008.pdf). It is an intuitive and straightforward idea as long as we limit our scope to a subset of Python. 
 
 The gist of it is that operator overloading in Python allows you to 
 **intercept** operations performed to variables. For example, consider the 
@@ -22,13 +21,13 @@ now the value of `x` plus 2. This can be recorded by overloading the addition:
 `x + 2` is actually executed as a call to `x.__add__(2)`. Therefore, if you use 
 a symbolic variable that you define, instead of a primitive integer, you can 
 record the symbolic state of `y`. The linked article gives a very detailed 
-explanation of the approach, including what to do with `y = 2 + x`: it is 
-necessary that you read it before designing your engine. 
+explanation of the approach, and it is necessary that you read it before 
+designing your engine. 
 
 There are a few of design decisions you need to make:
 
 - As covered in the class, we need to stop branch exploration when there are no more branch to cover. How will you know that no more "negating the last clause" is needed?
-- You need to convert the final symbolic summaries of variables at the end of the current execution path into a form that can be solved by z3-solver. Consult the tutorial for details.
+- You need to convert the final symbolic summaries of variables into a form that can be solved by z3-solver. Consult the tutorial for details.
 
 ### Objective
 
