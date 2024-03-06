@@ -1,4 +1,6 @@
+.coverage
 .DS_Store
+coverage.json
 __pycache__/
 *.pyc
 .pytest_cache/
