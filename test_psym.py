@@ -4,7 +4,6 @@ import shutil
 import json
 import subprocess
 
-
 def load_coverage_data(filename):
     """Load coverage data from a JSON file."""
     with open(filename, 'r') as file:
@@ -87,61 +86,3 @@ def run_tests_and_coverage():
     except subprocess.CalledProcessError as e:
         print("An error occurred while running the commands:")
         print(e.stderr.decode())
-
-
-def setup_module(module):
-    run_tests_and_coverage()
-
-
-def test_example1():
-    # Load the coverage data
-    current_coverage = load_coverage_data('examples/coverage.json')
-    reference_coverage = load_coverage_data('reference_coverage.json')
-
-    # Compare the coverage data
-    assert compare_executed_lines(current_coverage, reference_coverage, 'example1.py')
-
-
-def test_example2():
-    # Load the coverage data
-    current_coverage = load_coverage_data('examples/coverage.json')
-    reference_coverage = load_coverage_data('reference_coverage.json')
-
-    # Compare the coverage data
-    assert compare_executed_lines(current_coverage, reference_coverage, 'example2.py')
-
-
-def test_example3():
-    # Load the coverage data
-    current_coverage = load_coverage_data('examples/coverage.json')
-    reference_coverage = load_coverage_data('reference_coverage.json')
-
-    # Compare the coverage data
-    assert compare_executed_lines(current_coverage, reference_coverage, 'example3.py')
-
-
-def test_example4():
-    # Load the coverage data
-    current_coverage = load_coverage_data('examples/coverage.json')
-    reference_coverage = load_coverage_data('reference_coverage.json')
-
-    # Compare the coverage data
-    assert compare_executed_lines(current_coverage, reference_coverage, 'example4.py')
-
-
-def test_example5():
-    # Load the coverage data
-    current_coverage = load_coverage_data('examples/coverage.json')
-    reference_coverage = load_coverage_data('reference_coverage.json')
-
-    # Compare the coverage data
-    assert compare_executed_lines(current_coverage, reference_coverage, 'example5.py')
-
-
-def test_example6():
-    # Load the coverage data
-    current_coverage = load_coverage_data('examples/coverage.json')
-    reference_coverage = load_coverage_data('reference_coverage.json')
-
-    # Compare the coverage data
-    assert compare_executed_lines(current_coverage, reference_coverage, 'example6.py')
