@@ -70,7 +70,7 @@ def run_tests_and_coverage():
 
         # Run the assignment script for example python files
         for example_file in target_example_files:
-            result = subprocess.run(["python", "psym_sol.py", "-t", example_file], check=True)
+            result = subprocess.run(["python", "psym.py", "-t", example_file], check=True)
 
         # Execute the pytest command within the examples directory
         print('Running pytest with example files')
