@@ -57,3 +57,12 @@ Each target file can contain multiple Python functions, which are written in the
 The final output of your dynamic symbolic execution engine should be PyTest testcases: for each target `.py` file, generate a corresponding PyTest file, with the name being the prefix `test_` added to the original target file name. For example, if the target file is `example3.py`, then the generated PyTest file should be named `test_example3.py` and should be in the same directory as the target file. 
 
 The PyTest testcases should use the results of dynamic symbolic execution to achieve branch coverage. We will use [coverage.py](https://coverage.readthedocs.io/en/7.4.0/) to measure branch coverage of the generated testcases, which will be part of the grade. Note that you do not need to generate any assertions: achieving branch coverage is enough.
+
+### Report
+
+In addition to the implementation, submit a brief report as part of the repository. Name the file `report.pdf` in the root directory of the assignment repository. The report should contain the following:
+
+- A brief description of the problem in your own understanding
+- How you designed your solution
+- Any unique idea/technique that you think you contributed to the implementation
+- A brief summary of what you've learnt
