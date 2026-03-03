@@ -4,7 +4,7 @@ The aim of this assignment is to implement a lightweight dynamic symbolic execut
 
 ### Peer Lightweight Approach
 
-We will follow the [peer approach outlined by Bruni et al](Bruni2008.pdf). It is an intuitive and straightforward idea as long as we limit our scope to a subset of Python. 
+We will exploit the dynamic typing system of Python to do this (called Peer Lightweight Approach). It is an intuitive and straightforward idea as long as we limit our scope to a subset of Python. Writing a proper symbolic execution engine for other language is a much more demanding task.
 
 The gist of it is that operator overloading in Python allows you to 
 **intercept** operations performed to variables. For example, consider the 
@@ -20,9 +20,7 @@ A concrete execution will result in the program state in which `x` is equal to
 now the value of `x` plus 2. This can be recorded by overloading the addition: 
 `x + 2` is actually executed as a call to `x.__add__(2)`. Therefore, if you use 
 a symbolic variable that you define, instead of a primitive integer, you can 
-record the symbolic state of `y`. The linked article gives a very detailed 
-explanation of the approach, and it is necessary that you read it before 
-designing your engine. 
+record the symbolic state of `y`.
 
 There are a few of design decisions you need to make:
 
@@ -66,3 +64,8 @@ In addition to the implementation, submit a brief report as part of the reposito
 - How you designed your solution
 - Any unique idea/technique that you think you contributed to the implementation
 - A brief summary of what you've learnt
+
+### Important Notes
+
+- You can run the public test cases yourself using the files included in the repository: they are pytest test cases.
+- **DO NOT USE generative AI models**: they may be able to write a symbolic engine for you, but then **what do you learn from the experience?** If you really feel stuck, ask questions on Slack instead.
